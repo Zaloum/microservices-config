@@ -5,3 +5,20 @@ eureka:
     client:
         serviceUrl:
              defaultZone: http://localhost:8761/eureka/
+
+zuul:
+    debug:
+        request: true
+    routes:
+        article-service:
+            path: /article-service/**
+            serviceId: article-service
+            stripPrefix: true
+        account-service:
+            path: /account-service/**
+            serviceId: account-service
+            stripPrefix: true
+        news-website:
+            path: /news-website/**
+            serviceId: news-website
+            stripPrefix: true
